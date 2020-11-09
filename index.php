@@ -57,8 +57,8 @@ session_start();
             </div><!--Final das redes sociais-->
             <p class="description text-grey">Ou insira seus dados</p>
             <form class="form"  action="login.php" method="POST">
-                <label for="email"><i class="far fa-envelope"></i><input type="email" name="email" id="email" placeholder="seu.email@email.com"></label>
-                <label for="password"><i class="fas fa-key"></i><input type="password" name="password" id="password"  placeholder="&#9679 &#9679 &#9679 &#9679 &#9679 &#9679"></label>
+                <label for="email"><i class="far fa-envelope"></i><input type="email" name="email" id="email" placeholder="seu.email@email.com" required></label>
+                <label for="password"><i class="fas fa-key"></i><input type="password" name="password" id="password"  placeholder="&#9679 &#9679 &#9679 &#9679 &#9679 &#9679" required></label>
                 <a class="description text-grey" href="#">Esqueci minha senha</a>             
                 <button class="btn btn-white">Entrar</button>
             </form>

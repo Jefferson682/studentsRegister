@@ -35,15 +35,15 @@ include('verifica_login.php');
             <form action="" class="form">
                 <h3 class="title-form">Nome completo:</h3>
                 <label for="nome">
-                    <input type="text" name="nome" id="nome" maxlength="40" placeholder="Nome">
+                    <input type="text" name="nome" id="nome" maxlength="40" placeholder="Nome" required>
                 </label>
                 <h3 class="title-form">E-mail:</h3>
                 <label for="email">
-                    <input type="email" name="email" id="email" maxlength="50" placeholder="Email">
+                    <input type="email" name="email" id="email" maxlength="50" placeholder="Email" required>
                 </label>
                 <h3 class="title-form">Telefone :</h3>
                 <label for="tel">
-                    <input type="tel" name="tel" id="tel" maxlength="9" placeholder="999999999">
+                    <input type="tel" name="tel" id="tel" maxlength="9" placeholder="999999999" required>
                 </label>
                 <h3 class="title-form">Notas:</h3>
                 <div class="notas">
