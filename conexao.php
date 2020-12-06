@@ -5,3 +5,5 @@ define('SENHA', '');
 define('DB', 'projeto_web');
 
 $conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Não foi possivel conectar ao Banco de dados!');
+
+$conn = mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Não foi possivel conectar ao Banco de dados!');

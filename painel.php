@@ -1,5 +1,6 @@
 <?php
 include('verifica_login.php');
+include('funcao.php');
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +10,7 @@ include('verifica_login.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/painel.css">
+    <script src="js/functions.js"></script>
     
     <title>Painel-Projeto</title>
 </head>
@@ -19,46 +21,31 @@ include('verifica_login.php');
             <a class="description text-grey" href="logout.php">sair</a>
         </header>
 
-        <section class="conteudo dados">
-            <h2 class="title text-purple">Situação dos alunos</h2>
-            <h3>x estão aprovados por média</h3>
-            <h3>x estão em recuperação</h3>
-            <h3>x estão reprovados</h3>
-        </section>
-
         <section class="conteudo add">
             <div class="img">
                 <img src="img/student-png.png" alt="icone cadastro">
             </div>
             <div class="formulario">
                 <h2 class="title text-purple">Cadastro de novo aluno</h2>
-            <form action="" class="form">
-                <h3 class="title-form">Nome completo:</h3>
-                <label for="nome">
-                    <input type="text" name="nome" id="nome" maxlength="40" placeholder="Nome" required>
-                </label>
-                <h3 class="title-form">E-mail:</h3>
-                <label for="email">
-                    <input type="email" name="email" id="email" maxlength="50" placeholder="Email" required>
-                </label>
-                <h3 class="title-form">Telefone :</h3>
-                <label for="tel">
-                    <input type="tel" name="tel" id="tel" maxlength="9" placeholder="999999999" required>
-                </label>
-                <h3 class="title-form">Notas:</h3>
-                <div class="notas">
-                <label for="n1">
-                    <input type="number" name="n1" id="n1" placeholder="9.9" max=10>
-                </label>
-                <label for="n2">
-                    <input type="number" name="n2" id="n2" placeholder="9.9" max=10>
-                </label>
-                <label for="n3">
-                    <input type="number" name="n3" id="n3" placeholder="9.9" max=10>
-                </label>
-                </div>
-                <button class="btn btn-white">Cadastrar</button>
-            </form>    
+                    <form id="cadAluno" method="POST" action="funcao.php" class="form">
+                    <!-- Dados de controle -->
+                        <input type="hidden" id="codAluno" name="codAluno" value="<?=$_POST['codAluno']?>" size="3"/>        
+                        <input type="hidden" id="acao" name="acao" value="<?=$_POST['acao']?>" size="10"/>        
+                        <!-- Dados de controle -->
+                        <h3>CADASTRO DE ALUNOS</h3>            
+                        <label for="nome">
+                        <input type="text" placeholder="Nome Completo" require id="nome" name="nome" value="<?=$nome?>"/>
+                        </label>
+                        <label for="email">
+                        <input type="text" placeholder="E-mail" require id="email" name="email" value="<?=$email?>"/>
+                        </label>
+                        <label for="celular"> 
+                        <input type="text" placeholder="84 9999.9999" require id="celular" name="celular" value="<?=$celular?>"/>
+                        </label>
+                        <button class="btn btn-white" type="button" onclick="salvar()">Salvar</button>
+                        <button class="btn btn-white" type="button" onclick="limpar()">Limpar</button> 
+                    </form>
+                <p id="mensagem"></p>
             </div>
             
         </section>
@@ -67,31 +54,14 @@ include('verifica_login.php');
             <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Primeiro</th>
-                    <th scope="col">Último</th>
-                    <th scope="col">Nickname</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Celular</th>
+                    <th scope="col">Ações</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                <?php echo($lista) ?>
                 </tbody>
               </table>
         </section>
