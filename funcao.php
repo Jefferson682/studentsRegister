@@ -64,7 +64,8 @@
 
         $result = $conexao->query($sql);
         if($result){
-            echo("DADOS SALVOS COM SUCESSO!!!");
+            echo "<script>alert('Dados Salvos com Sucesso!');</script>";
+
         }
     }
 
@@ -76,7 +77,7 @@
             $email = utf8_encode($row[2]);
             $celular = utf8_encode($row[3]);
         }else{
-            echo("Aluno não encontrado!!!");
+            echo "<script>alert('Aluno não encontrado!');</script>";
         } 
     }    
 
@@ -85,7 +86,7 @@
             $sql = "delete from alunos where id = ". $_POST['codAluno'];
             $result = $conexao->query($sql);
             if($result){
-                echo("DADOS EXCLUIDOS COM SUCESSO!!!");
+                echo "<script>alert('Dados Excluidos com Sucesso!');</script>";
             } 
         }else{
             echo("ALUNO NÃO ENCONTRADO!!!");
